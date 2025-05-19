@@ -1,0 +1,22 @@
+/* src/main/resources/ui/styles.css */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.menu-header-box:hover {
+    -fx-background-color: #e0e0e0; /* Màu nền khi hover */
+}
+
+.submenu-button-original {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 10 5 10;
+}
+
+.submenu-button-original:hover {
+    -fx-background-color: #e0e0e0;
+}

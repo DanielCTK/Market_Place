@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- JFoenix Imports -->
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+
+<!-- JavaFX Imports -->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- fx:controller trỏ đến NewSalesReportController -->
+<AnchorPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.NewSalesReportController">
+   <children>
+      <VBox spacing="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Label text="Sales Report Dashboard" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+            <Separator />
+            <HBox spacing="20.0">
+               <children>
+                  <!-- Panel Lọc và Điều khiển -->
+                  <VBox spacing="10.0" prefWidth="250.0">
+                     <children>
+                        <Label text="Product Categories:" style="-fx-font-weight: bold;" />
+                        <!-- Sử dụng JFXListView -->
+                        <JFXListView fx:id="categoryListView" prefHeight="150.0" VBox.vgrow="SOMETIMES" />
+                        <!-- Sử dụng JFXButton -->
+                        <JFXButton fx:id="generateReportButton" onAction="#handleGenerateReport" text="Generate Report" maxWidth="Infinity" buttonType="RAISED" style="-fx-background-color: #007bff; -fx-text-fill: white;"/>
+                        <!-- Sử dụng JFXSpinner -->
+                        <JFXSpinner fx:id="progressIndicator" radius="12" visible="false" />
+                     </children>
+                  </VBox>
+                  <!-- Panel Thông tin và Biểu đồ -->
+                  <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Total Sales:" style="-fx-font-weight: bold;" />
+                              <Label fx:id="totalSalesLabel" text="\$0.00" />
+                           </children>
+                        </HBox>
+                        <Separator/>
+                        <Label text="Chart Type:" style="-fx-font-weight: bold;" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <!-- Sử dụng JFXRadioButton -->
+                              <JFXRadioButton fx:id="barChartRadio" selected="true" text="Bar Chart">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="chartTypeToggleGroup" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="lineChartRadio" text="Line Chart" toggleGroup="$chartTypeToggleGroup" />
+                              <JFXRadioButton fx:id="pieChartRadio" text="Pie Chart" toggleGroup="$chartTypeToggleGroup" />
+                           </children>
+                        </HBox>
+                        <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: #f0f0f0;">
+                           <children>
+                              <BarChart fx:id="salesBarChart" title="Sales by Category" animated="false">
+                                <xAxis>
+                                  <CategoryAxis fx:id="barChartXAxis" side="BOTTOM" label="Category"/>
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="barChartYAxis" side="LEFT" label="Revenue"/>
+                                </yAxis>
+                              </BarChart>
+                              <LineChart fx:id="salesLineChart" title="Sales by Category" visible="false" managed="false" animated="false">
+                                <xAxis>
+                                  <CategoryAxis fx:id="lineChartXAxis" side="BOTTOM" label="Category"/>
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="lineChartYAxis" side="LEFT" label="Revenue"/>
+                                </yAxis>
+                              </LineChart>
+                              <PieChart fx:id="salesPieChart" title="Sales Distribution" visible="false" managed="false" animated="false"/>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator />
+            <Label text="Sales Details:" style="-fx-font-weight: bold;" />
+            <!-- TableView vẫn là JavaFX chuẩn, columnResizePolicy đặt trong code -->
+            <TableView fx:id="salesTableView" prefHeight="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="productIdColumn" prefWidth="100.0" text="Product ID" />
+                <TableColumn fx:id="productNameColumn" prefWidth="200.0" text="Product/Category" />
+                  <TableColumn fx:id="quantitySoldColumn" prefWidth="100.0" text="Qty Sold" />
+                  <TableColumn fx:id="unitPriceColumn" prefWidth="120.0" text="Avg. Price" />
+                  <TableColumn fx:id="totalRevenueColumn" prefWidth="150.0" text="Total Revenue" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

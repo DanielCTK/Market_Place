@@ -1,0 +1,30 @@
+
+**Note on FXML Locations:**
+The ToC lists FXML files in both `bin/ui/` and `Resources/ui/`.
+*   `Resources/ui/` likely contains the source FXML files you edit.
+*   `bin/ui/` is likely the output directory where these FXMLs (and CSS) are copied/compiled to, and from where the application loads them at runtime.
+*   FXML `Image` tags use paths like `url="@../../src/Image%20For%20Market/..."`. This implies that at runtime, the FXML file is located two levels deep from a common parent of `src`. This is consistent with FXMLs being in `bin/ui/` and images in `src/Image For Market/` if `bin` and `src` are siblings.
+
+## 8. Key Functionality Walkthrough (High-Level)
+
+1.  **Launch:** `ui.Launcher` starts the application, typically showing `Login.fxml`.
+2.  **Authentication:** `LoginController` uses `AuthService` to verify credentials against the database (passwords checked via `PasswordHasher`). `SessionManager` stores the logged-in user.
+3.  **Registration:** `RegistrationController` uses `AuthService` to create new users.
+4.  **Main Window:** `MainController` loads after successful login. It manages the main layout, side-menu navigation, and dynamic content loading into `mainContentPane`.
+5.  **Module Access:** Based on the logged-in user's role (from `SessionManager`), `MainController` enables/disables menu items.
+6.  **Data Operations:** Each panel's controller (e.g., `UserManagementController`) interacts with its respective DAO (e.g., `UserDAO`) to perform CRUD operations. DAOs use `DBConnection` (via `DatabaseManager`) to interact with the MySQL database.
+7.  **Dialogs:** Forms for adding/editing entities (e.g., `UserFormDialog.fxml`) are typically shown as modal dialogs.
+
+## 9. Potential Future Enhancements
+
+*   Implement a proper build system (Maven or Gradle) for dependency management.
+*   Provide a SQL script for automatic database schema creation.
+*   More robust error handling and user feedback.
+*   Implement "My Store" functionality for Sellers.
+*   Add more detailed reporting and analytics.
+*   Unit and integration tests.
+
+## 10. Notes
+
+*   Ensure all FXML file paths in `FXMLLoader.load()` calls are correct relative to the classpath (usually starting with `/` for absolute paths from the root of resources/class files). The current image paths within FXMLs suggest they are relative paths from the `bin/ui/` directory.
+*   The application uses JFoenix, so ensure the JFoenix JAR is correctly configured in your project's module path or classpath. The `module-info.java` must `requires com.jfoenix;`.

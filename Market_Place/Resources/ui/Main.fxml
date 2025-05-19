@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1133.0" stylesheets="@style3.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="730.0" prefWidth="308.0" style="-fx-background-color: #c73535; -fx-background-radius: 20;">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <children>
+            <AnchorPane prefHeight="70.0" prefWidth="247.0" style="-fx-background-color: #ffc1c1; -fx-background-radius: 15;">
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="71.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(10).png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="79.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Menu">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="28.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+
+            <!-- Menu Items Container -->
+            <VBox fx:id="menuContainer" alignment="TOP_LEFT" prefWidth="280.0" spacing="10.0">
+                <VBox.margin>
+                    <Insets top="15.0" />
+                </VBox.margin>
+                <children>
+                    <!-- NÚT HOME -->
+                    <HBox fx:id="homeMenuButton" alignment="CENTER_LEFT" onMouseClicked="#handleGoHome" prefHeight="53.0" prefWidth="247.0" spacing="10.0" style="-fx-background-color: #ffc9c9; -fx-background-radius: 20; -fx-cursor: hand;" styleClass="menu-header-box">
+                        <VBox.margin>
+                            <Insets left="15.0" right="15.0" top="5.0" />
+                        </VBox.margin>
+                        <children>
+                            <ImageView fitHeight="52.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(15).png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets left="10.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="180.0" style="-fx-background-color: #fff2f2; -fx-background-radius: 12;" HBox.hgrow="ALWAYS">
+                                <padding>
+                                    <Insets left="15.0" />
+                                </padding>
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home" HBox.hgrow="ALWAYS">
+                                        <font>
+                                            <Font name="Segoe UI Semilight" size="16.0" />
+                                        </font>
+                                    </Text>
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                    <!-- KẾT THÚC NÚT HOME -->
+
+                    <!-- Account Menu Item -->
+                    <VBox fx:id="accountMenuItemContainer" spacing="5.0">
+                        <children>
+                            <HBox fx:id="accountMenuHeader" alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="282.0" spacing="10.0" style="-fx-background-color: #ffc9c9; -fx-background-radius: 20; -fx-cursor: hand;" styleClass="menu-header-box">
+                                <VBox.margin>
+                                    <Insets left="15.0" right="15.0" top="5.0" />
+                                </VBox.margin>
+                                <children>
+                                    <ImageView fitHeight="52.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/61f75ea9a680def2ed1c6929fe75aeee-Photoroom.png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets left="5.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="219.0" style="-fx-background-color: #fff2f2; -fx-background-radius: 12;" HBox.hgrow="ALWAYS">
+                                        <padding>
+                                            <Insets left="15.0" right="10.0" />
+                                        </padding>
+                                        <children>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account" HBox.hgrow="ALWAYS">
+                                                <font>
+                                                    <Font name="Segoe UI Semilight" size="16.0" />
+                                                </font>
+                                            </Text>
+                                            <ImageView fx:id="accountArrow" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../../src/Image%20For%20Market/arrow_right_black.png" />
+                                                </image>
+                                                <HBox.margin>
+                                                    <Insets top="5.0" />
+                                                </HBox.margin>
+                                            </ImageView>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </HBox>
+                            <VBox fx:id="accountSubMenu" managed="false" spacing="5.0" style="-fx-padding: 0 0 0 55;" visible="false">
+                                <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                </VBox.margin>
+                                <children>
+                                    <Button onAction="#handleViewProfile" prefWidth="215.0" styleClass="submenu-button-original" text="View Profile" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </VBox>
+
+                    <!-- Management Menu Item -->
+                    <VBox fx:id="managementMenuItemContainer" spacing="5.0">
+                        <children>
+                            <HBox fx:id="managementMenuHeader" alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #ffc9c9; -fx-background-radius: 20; -fx-cursor: hand;" styleClass="menu-header-box">
+                                <VBox.margin>
+                                    <Insets left="15.0" right="15.0" top="5.0" />
+                                </VBox.margin>
+                                <children>
+                                    <ImageView fx:id="managementArrow" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/arrow_right_black.png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets left="10.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="198.0" style="-fx-background-color: #fff2f2; -fx-background-radius: 12;" HBox.hgrow="ALWAYS">
+                                        <padding>
+                                            <Insets left="10.0" right="10.0" />
+                                        </padding>
+                                        <children>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Management" textAlignment="LEFT" HBox.hgrow="ALWAYS">
+                                                <font>
+                                                    <Font name="Segoe UI Semilight" size="16.0" />
+                                                </font>
+                                            </Text>
+                                        </children>
+                                    </HBox>
+                                    <ImageView fitHeight="54.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/image-Photoroom.png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                </children>
+                            </HBox>
+                            <VBox fx:id="managementSubMenu" managed="false" spacing="5.0" style="-fx-padding: 0 0 0 55;" visible="false">
+                                <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                </VBox.margin>
+                                <children>
+                                    <Button onAction="#handleUserManagement" prefWidth="215.0" styleClass="submenu-button-original" text="User Management" />
+                                    <Button onAction="#handleProductManagement" prefWidth="215.0" styleClass="submenu-button-original" text="Product Management" />
+                                    <Button onAction="#handleSellerManagement" prefWidth="215.0" styleClass="submenu-button-original" text="Seller Management" />
+                                    <Button onAction="#handleOrderManagement" prefWidth="215.0" styleClass="submenu-button-original" text="Order Management" />
+                                    <Button onAction="#handleReviewManagement" prefWidth="215.0" styleClass="submenu-button-original" text="Review Management" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </VBox>
+
+                    <!-- My Store Menu Item -->
+                    <VBox fx:id="myStoreMenuItemContainer" spacing="5.0">
+                        <children>
+                            <HBox fx:id="myStoreMenuHeader" alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #ffc9c9; -fx-background-radius: 20; -fx-cursor: hand;" styleClass="menu-header-box">
+                                <VBox.margin>
+                                    <Insets left="15.0" right="15.0" top="5.0" />
+                                </VBox.margin>
+                                <children>
+                                    <ImageView fx:id="myStoreArrow" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/arrow_right_black.png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets left="10.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="198.0" style="-fx-background-color: #fff2f2; -fx-background-radius: 12;" HBox.hgrow="ALWAYS">
+                                        <padding>
+                                            <Insets left="10.0" right="10.0" />
+                                        </padding>
+                                        <children>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My Store" textAlignment="LEFT" HBox.hgrow="ALWAYS">
+                                                <font>
+                                                    <Font name="Segoe UI Semilight" size="16.0" />
+                                                </font>
+                                            </Text>
+                                        </children>
+                                    </HBox>
+                                    <ImageView fitHeight="54.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(16).png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                </children>
+                            </HBox>
+                            <VBox fx:id="myStoreSubMenu" managed="false" spacing="5.0" style="-fx-padding: 0 0 0 55;" visible="false">
+                                <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                </VBox.margin>
+                                <children>
+                                    <Button onAction="#handleMyProducts" prefWidth="215.0" styleClass="submenu-button-original" text="My Products" />
+                                    <Button onAction="#handleMyOrders" prefWidth="215.0" styleClass="submenu-button-original" text="My Orders" />
+                                </children>
+                            </VBox>
+                        </children>
+                    </VBox>
+
+                    <!-- Reports Menu Item -->
+                    <VBox fx:id="reportsMenuItemContainer" spacing="5.0">
+                        <children>
+                            <HBox fx:id="reportsMenuHeader" alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="52.0" prefWidth="280.0" spacing="10.0" style="-fx-background-color: #ffc9c9; -fx-background-radius: 15; -fx-cursor: hand;" styleClass="menu-header-box">
+                                <VBox.margin>
+                                    <Insets left="15.0" right="15.0" top="5.0" />
+                                </VBox.margin>
+                                <children>
+                                    <ImageView fx:id="reportsArrow" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/arrow_right_black.png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets left="10.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="300.0" style="-fx-background-color: #fff2f2; -fx-background-radius: 12;" HBox.hgrow="ALWAYS">
+                                        <children>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reports" textAlignment="LEFT" HBox.hgrow="ALWAYS">
+                                                <font>
+                                                    <Font name="Segoe UI Semilight" size="16.0" />
+                                                </font>
+                                                <HBox.margin>
+                                                    <Insets left="5.0" />
+                                                </HBox.margin>
+                                            </Text>
+                                        </children>
+                                        <padding>
+                                            <Insets left="15.0" right="10.0" />
+                                        </padding>
+                                    </HBox>
+                                    <ImageView fitHeight="46.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(3).png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                </children>
+                            </HBox>
+                            <VBox fx:id="reportsSubMenu" managed="false" spacing="5.0" style="-fx-padding: 0 0 0 55;" visible="false">
+                                <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                </VBox.margin>
+                                <children>
+                                    <Button onAction="#handleSalesReport" prefWidth="215.0" styleClass="submenu-button-original" text="Sales Report" />
+                                    <Button onAction="#handleUserActivityReport" prefWidth="215.0" styleClass="submenu-button-original" text="User Activity" />
+                                </children>
+                            </VBox>
+                        </children>
+                         <VBox.margin>
+                            <Insets bottom="15.0" />
+                        </VBox.margin>
+                    </VBox>
+
+                </children>
+            </VBox> <!-- End of Menu Items Container -->
+
+            <Pane VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="162.0" fitWidth="222.0" layoutX="33.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../src/Image%20For%20Market/865ec733e6fd6fec84763f7cb494c772.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="112.0" prefWidth="308.0">
+               <children>
+                  <!-- NẾU BẠN XÓA THẺ <font> BÊN DƯỚI, CSS SẼ QUẢN LÝ FONT -->
+                  <Button fx:id="logoutButton" layoutX="106.0" layoutY="37.0" onAction="#handleLogout" prefHeight="34.0" prefWidth="156.0" styleClass="logout-button" text="Logout">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="54.0" fitWidth="54.0" layoutX="44.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(6).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+
+         </children>
+      </VBox>
+      
+      <AnchorPane fx:id="mainContentPane" prefHeight="726.0" prefWidth="886.0" style="-fx-background-color: #ffc1c1; -fx-padding: 15; -fx-background-radius: 20;" HBox.hgrow="ALWAYS">
+         <children>
+            <Text layoutX="14.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Marketplace Transactional" AnchorPane.bottomAnchor="660.63203125" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="341.13671875" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="36.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutX="42.0" layoutY="86.0" prefHeight="378.0" prefWidth="831.0" style="-fx-background-color: #c73535; -fx-background-radius: 15; -fx-border-color: black; -fx-border-radius: 15;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="70.0">
+               <children>
+                  <Text fill="WHITE" layoutX="233.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select an option from the menu to get started.">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="238.0" fitWidth="247.0" layoutX="599.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../src/Image%20For%20Market/433a885903b5e6b6b9b5edf681169882.gif" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D minX="10.0" minY="10.0" />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fitHeight="232.0" fitWidth="238.0" layoutX="149.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="150.0">
+                     <image>
+                        <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20153738-Photoroom.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="191.0" fitWidth="238.0" layoutX="487.0" layoutY="194.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="148.0" AnchorPane.topAnchor="200.0">
+                     <image>
+                        <Image url="@../../src/Image%20For%20Market/2f72c2bcf45fc6bd528df744fb6c8092.gif" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="164.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Your Marketplace Dashboard!" AnchorPane.topAnchor="421.142578125">
+                     <font>
+                        <Font name="Comic Sans MS" size="28.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </AnchorPane>
+   </children>
+</HBox>

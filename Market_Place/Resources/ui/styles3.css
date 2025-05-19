@@ -1,0 +1,60 @@
+/* style3.css */
+
+/* ===== BASE STYLES (IF ANY, BEYOND FXML INLINE STYLES) ===== */
+/* You might have other base styles here. */
+
+
+/* ===== HOVER EFFECTS ===== */
+
+/* For the main menu item boxes (Home, Account, Management, etc.) */
+/* These HBox elements in FXML have styleClass="menu-header-box"
+   and an inline style like: style="-fx-background-color: #ffc9c9; -fx-background-radius: 20; -fx-cursor: hand;"
+   The :hover pseudo-class will override relevant properties from the inline style on mouse over.
+*/
+.menu-header-box:hover {
+    -fx-background-color: #ffb5b5; /* Example: a slightly different shade for hover */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 1.5); /* Enhanced shadow */
+}
+
+/* For the submenu buttons (View Profile, User Management, etc.) */
+/* These Button elements in FXML have styleClass="submenu-button-original" */
+.submenu-button-original {
+    /* Base styles for submenu buttons. Adjust to your theme. */
+    -fx-background-color: #fce0e0; /* Example base color */
+    -fx-text-fill: #444444;        /* Example text color */
+    -fx-background-radius: 8;
+    -fx-padding: 6 12;             /* Adjust padding as needed */
+    -fx-font-family: "Segoe UI Semilight";
+    -fx-font-size: 14px;
+    -fx-cursor: hand;              /* Ensure cursor changes to hand */
+}
+
+.submenu-button-original:hover {
+    -fx-background-color: #f7c7c7; /* Example: slightly darker or different shade for hover */
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.2, 0, 1); /* Enhanced shadow */
+}
+
+/* For the Logout button */
+/* This Button in FXML has fx:id="logoutButton" and styleClass="logout-button" */
+.logout-button {
+    -fx-background-color: #c73535; /* Màu giống màu nền chính của menu */
+    -fx-background-radius: 12;     /* Giữ nguyên bo góc */
+    -fx-text-fill: white;          /* Giữ nguyên màu chữ trắng */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.3, 1, 1); /* Giữ nguyên hiệu ứng đổ bóng cơ bản */
+    
+    /* Nếu bạn đã xóa thẻ <font> trong FXML, hãy thêm các dòng này: */
+    -fx-font-family: "Segoe UI Bold";
+    -fx-font-size: 16px;
+    
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: #b32d2d; /* Màu đậm hơn một chút của #c73535 khi hover */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.6, 1, 2); /* Tăng cường hiệu ứng đổ bóng */
+}
+
+/* ===== END OF HOVER EFFECTS ===== */
+
+/* Add any other general styles for your application below */

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefWidth="450.0" 
+            style="-fx-background-color: #e6ffe6; -fx-background-radius: 25;" 
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ui.SellerFormDialogController">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="20.0" 
+              AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" 
+              AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label text="Seller Details">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font>
+                </Label>
+
+                <GridPane hgap="10.0" vgap="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="100.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Seller ID -->
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Seller State -->
+                    </rowConstraints>
+                    <children>
+                        <Label text="Seller ID*:" GridPane.rowIndex="0">
+                            <font><Font name="Segoe UI" size="14.0" /></font>
+                        </Label>
+                        <JFXTextField fx:id="sellerIdField" promptText="Enter Seller ID (e.g., SELLER001)" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Seller State:" GridPane.rowIndex="1">
+                            <font><Font name="Segoe UI" size="14.0" /></font>
+                        </Label>
+                        <JFXTextField fx:id="sellerStateField" promptText="Enter Seller State (e.g., SP, RJ - optional)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+
+                <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                    <children>
+                        <JFXButton fx:id="saveButton" onAction="#handleSave" text="Save" 
+                                   style="-fx-background-color: #4CAF50; -fx-text-fill: white;" 
+                                   defaultButton="true" buttonType="RAISED" ripplerFill="LIGHTGREEN"/>
+                        <JFXButton fx:id="cancelButton" onAction="#handleCancel" text="Cancel" 
+                                   cancelButton="true" buttonType="RAISED" ripplerFill="LIGHTGRAY"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="25.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

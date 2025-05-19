@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableColumn?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- Import quan trọng -->
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #ec8174; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.UserManagementController">
+   <children>
+      <Pane layoutX="98.0" layoutY="37.0" prefHeight="30.0" prefWidth="158.0" style="-fx-background-color: #ff8f8f; -fx-background-radius: 20;">
+         <children>
+            <Text fx:id="greetingText" layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi, Username !!!" wrappingWidth="138.13665771484375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      
+      <VBox layoutX="177.6" layoutY="113.6" prefHeight="545.0" prefWidth="636.0" spacing="15.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="103.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <JFXButton fx:id="addButton" buttonType="RAISED" onAction="#handleAddNewUser" ripplerFill="#ff8f8f" style="-fx-background-color: #ff8f8f; -fx-text-fill: white;" text="Add New User" />
+                  <JFXButton fx:id="editButton" buttonType="RAISED" onAction="#handleEditUser" ripplerFill="#f2f2f2" style="-fx-background-color: #ffdada; -fx-text-fill: gray;" text="Edit Selected" />
+                  <JFXButton fx:id="deleteButton" buttonType="RAISED" onAction="#handleDeleteUser" ripplerFill="LIGHTCORAL" style="-fx-background-color: #F44336; -fx-text-fill: white;" text="Delete Selected" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            
+            <JFXTreeTableView fx:id="usersTable" prefHeight="380.0" style="-fx-background-color: #ffdada; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+              <columns>
+                <JFXTreeTableColumn fx:id="idColumn" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID" />
+                <JFXTreeTableColumn fx:id="usernameColumn" prefWidth="120.0" text="Username" />
+                <JFXTreeTableColumn fx:id="fullNameColumn" prefWidth="150.0" text="Full Name" />
+                <JFXTreeTableColumn fx:id="emailColumn" prefWidth="180.0" text="Email" />
+                <JFXTreeTableColumn fx:id="roleColumn" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Role" />
+                <JFXTreeTableColumn fx:id="createdAtColumnFormatted" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Created At" />
+              </columns>
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </JFXTreeTableView>
+
+            <!-- Pagination Controls -->
+            <HBox fx:id="paginationControls" alignment="CENTER" prefHeight="40.0" spacing="10.0">
+                <children>
+                    <JFXButton fx:id="firstPageButton" buttonType="RAISED" onAction="#handleFirstPage" text="« First" />
+                    <JFXButton fx:id="prevPageButton" buttonType="RAISED" onAction="#handlePreviousPage" text="‹ Prev" />
+                    <Label fx:id="pageInfoLabel" text="Page 1 of 1" />
+                    <JFXButton fx:id="nextPageButton" buttonType="RAISED" onAction="#handleNextPage" text="Next ›" />
+                    <JFXButton fx:id="lastPageButton" buttonType="RAISED" onAction="#handleLastPage" text="Last »" />
+                </children>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <TextField fx:id="searchField" layoutX="474.0" layoutY="81.0" prefHeight="30.0" prefWidth="278.0" promptText="Search by username, full name, or email" style="-fx-font-size: 14px;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      
+      <ImageView fx:id="searchIconImageView" fitHeight="30.0" fitWidth="30.0" layoutX="760.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <!-- Thay bằng đường dẫn ảnh của bạn hoặc xóa nếu không dùng -->
+            <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(8).png" />
+         </image>
+      </ImageView>
+      
+      <ImageView fitHeight="59.0" fitWidth="71.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <!-- Thay bằng đường dẫn ảnh của bạn -->
+            <Image url="@../../src/Image%20For%20Market/61f75ea9a680def2ed1c6929fe75aeee-Photoroom.png" />
+         </image>
+      </ImageView>
+      
+      <ImageView fitHeight="149.0" fitWidth="239.0" layoutX="267.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <!-- Thay bằng đường dẫn ảnh của bạn -->
+            <Image url="@../../src/Image%20For%20Market/d0b6699c086df2e9d298d1589eb07857.gif" />
+         </image>
+      </ImageView>
+      
+      <Pane layoutX="14.0" layoutY="436.0" prefHeight="200.0" prefWidth="158.0" style="-fx-background-color: #ffc7c7; -fx-background-radius: 25;">
+         <children>
+            <Pane layoutX="10.0" layoutY="14.0" prefHeight="37.0" prefWidth="138.0" style="-fx-background-color: #ff8f8f; -fx-background-radius: 25;">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <!-- Thay bằng đường dẫn ảnh của bạn -->
+                        <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(9).png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="80.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- - -" wrappingWidth="57.515625"> <!-- Thay đổi chữ thành "Summary" -->
+                     <font>
+                        <Font name="System Bold" size="24.0" /> <!-- Giảm size chữ một chút -->
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Text layoutX="20.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Users">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="totalUserCountText" layoutX="66.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0"> <!-- Giá trị khởi tạo là "0" -->
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      
+      <Pane layoutX="474.0" layoutY="12.0" prefHeight="59.0" prefWidth="314.0" style="-fx-background-color: #c73535; -fx-background-radius: 20;">
+         <children>
+            <Text fill="WHITE" layoutX="16.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Management">
+               <font>
+                  <Font name="Segoe Script" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      
+      <ImageView fitHeight="230.0" fitWidth="151.0" layoutX="18.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <!-- Thay bằng đường dẫn ảnh của bạn -->
+            <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20214817-Photoroom.png" />
+         </image>
+      </ImageView>
+
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

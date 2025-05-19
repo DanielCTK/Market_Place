@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTreeTableColumn?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #d3ffd3; -fx-border-radius: 30; -fx-border-color: black; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.SellerManagementController">
+   <children>
+      <ImageView fitHeight="139.0" fitWidth="172.0" layoutX="-5.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" rotate="-32.8">
+         <image>
+            <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(17).png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="78.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #a6fca6; -fx-background-radius: 20;">
+         <children>
+            <Text fx:id="greetingTextSeller" layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seller Section" wrappingWidth="172.13671875">
+               <font><Font name="Comic Sans MS" size="18.0" /></font>
+            </Text>
+         </children>
+      </Pane>
+
+      <VBox layoutX="167.0" layoutY="73.0" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="73.0">
+         <children>
+             <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="10.0">
+                 <children>
+                     <JFXComboBox fx:id="stateFilterComboBox" prefWidth="200.0" promptText="All States" style="-fx-font-size: 14px;" HBox.hgrow="NEVER" />
+                     <TextField fx:id="searchField" promptText="Search by ID or State" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                     <JFXButton fx:id="searchButton" buttonType="RAISED" style="-fx-background-color: #3ba92e; -fx-text-fill: white;" text="Search" />
+                 </children>
+                 <VBox.margin>
+                     <Insets bottom="5.0" />
+                 </VBox.margin>
+             </HBox>
+
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <JFXButton fx:id="addButton" buttonType="RAISED" onAction="#handleAddNewSeller" ripplerFill="#a6fca6" style="-fx-background-color: #a6fca6; -fx-text-fill: #333333;" text="Add Seller" />
+                  <JFXButton fx:id="editButton" buttonType="RAISED" onAction="#handleEditSeller" ripplerFill="#d9ffd9" style="-fx-background-color: #d9ffd9; -fx-text-fill: gray;" text="Edit Selected" />
+                  <JFXButton fx:id="deleteButton" buttonType="RAISED" onAction="#handleDeleteSeller" ripplerFill="#ffaaaa" style="-fx-background-color: #3ba92e; -fx-text-fill: white;" text="Delete Selected" />
+               </children>
+            </HBox>
+
+            <JFXTreeTableView fx:id="sellersTable" style="-fx-background-color: #9cff9c; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+              <columns>
+                <JFXTreeTableColumn fx:id="sellerIdColumn" prefWidth="250.0" style="-fx-alignment: CENTER_LEFT;" text="Seller ID" />
+                <JFXTreeTableColumn fx:id="sellerStateColumn" prefWidth="250.0" text="Seller State" />
+              </columns>
+               <columnResizePolicy><TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+            </JFXTreeTableView>
+            
+            <Label fx:id="pageInfoLabel" alignment="CENTER" maxWidth="Infinity" text="Page X of Y (Total: Z)">
+                <font><Font name="Segoe UI" size="14.0" /></font>
+                <VBox.margin><Insets bottom="5.0" top="5.0" /></VBox.margin>
+            </Label>
+
+            <HBox fx:id="paginationControls" alignment="CENTER" prefHeight="40.0" spacing="15.0">
+                <children>
+                    <JFXButton fx:id="firstPageButton" buttonType="RAISED" onAction="#handleFirstPage" text="« First" />
+                    <JFXButton fx:id="prevPageButton" buttonType="RAISED" onAction="#handlePreviousPage" text="‹ Prev" />
+                    <JFXButton fx:id="nextPageButton" buttonType="RAISED" onAction="#handleNextPage" text="Next ›" />
+                    <JFXButton fx:id="lastPageButton" buttonType="RAISED" onAction="#handleLastPage" text="Last »" />
+                </children>
+                <VBox.margin><Insets top="5.0" /></VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+
+      <Pane layoutX="21.0" layoutY="317.0" prefHeight="180.0" prefWidth="140.0" style="-fx-background-color: #9cff9c; -fx-background-radius: 25;">
+         <children>
+            <Pane layoutX="10.0" layoutY="14.0" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: #3ba92e; -fx-background-radius: 25;">
+               <children>
+                  <Text fx:id="totalSellersCountText" layoutX="10.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="---" textAlignment="CENTER" wrappingWidth="100.0">
+                     <font><Font name="System Bold" size="20.0" /></font>
+                  </Text>
+               </children>
+            </Pane>
+            <Text layoutX="15.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Sellers" textAlignment="CENTER" wrappingWidth="110.0">
+               <font><Font name="Segoe UI" size="20.0" /></font>
+            </Text>
+         </children>
+      </Pane>
+
+      <Pane layoutX="370.0" layoutY="12.0" prefHeight="59.0" prefWidth="350.0" style="-fx-background-color: #009688; -fx-background-radius: 20;">
+         <children>
+            <Text fill="WHITE" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seller Management">
+               <font><Font name="Segoe Script" size="26.0" /></font>
+            </Text>
+         </children>
+      </Pane>
+      <ImageView fitHeight="206.0" fitWidth="231.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../src/Image%20For%20Market/a96655e7bd9045500c0c94255bd52c53.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="191.0" fitWidth="200.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../src/Image%20For%20Market/image-Photoroom%20(13).png" />
+         </image>
+      </ImageView>
+   </children>
+   <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+</AnchorPane>

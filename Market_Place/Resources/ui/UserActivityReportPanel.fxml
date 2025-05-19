@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- JFoenix Imports -->
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXSpinner?>
+
+<!-- JavaFX Imports -->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- fx:controller trỏ đến UserActivityReportController -->
+<AnchorPane prefHeight="600.0" prefWidth="780.0" style="-fx-background-color: #64b3c0; -fx-background-radius: 25; -fx-border-color: black; -fx-border-radius: 25;" styleClass="content-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.UserActivityReportController">
+    <children>
+        <VBox spacing="15.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <Label styleClass="header-title" text="User Activity Report">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="24.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Start Date:" />
+                        <!-- Sử dụng JFXDatePicker -->
+                        <JFXDatePicker fx:id="startDatePicker" defaultColor="#007bff"/>
+                        <Label text="End Date:" />
+                        <!-- Sử dụng JFXDatePicker -->
+                        <JFXDatePicker fx:id="endDatePicker" defaultColor="#007bff"/>
+                        <!-- Sử dụng JFXButton -->
+                        <JFXButton fx:id="generateReportButton" onAction="#handleGenerateReport" styleClass="primary-button" text="Generate Report" buttonType="RAISED"/>
+                        <!-- Sử dụng JFXSpinner -->
+                        <JFXSpinner fx:id="progressIndicator" radius="12" visible="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="50.0">
+                    <children>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label styleClass="info-label-header" text="Total Logins:" />
+                                <Label fx:id="totalLoginsLabel" styleClass="info-label-value" text="N/A" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label styleClass="info-label-header" text="New Registrations:" />
+                                <Label fx:id="newRegistrationsLabel" styleClass="info-label-value" text="N/A" />
+                            </children>
+                        </VBox>
+                         <VBox spacing="5.0">
+                            <children>
+                                <Label styleClass="info-label-header" text="Unique Active Users:" />
+                                <Label fx:id="uniqueActiveUsersLabel" styleClass="info-label-value" text="0" />
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+                <!-- TableView vẫn là JavaFX chuẩn -->
+                <TableView fx:id="activityTableView" prefHeight="300.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="timestampColumn" prefWidth="150.0" text="Timestamp" />
+                        <TableColumn fx:id="userIdColumn" prefWidth="100.0" text="User ID" />
+                        <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Username" />
+                        <TableColumn fx:id="actionColumn" prefWidth="250.0" text="Action" />
+                        <TableColumn fx:id="detailsColumn" prefWidth="100.0" text="Details" />
+                    </columns>
+                    <!-- Đặt columnResizePolicy trong code Java (controller) -->
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

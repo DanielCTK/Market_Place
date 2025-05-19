@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ad80d9; -fx-background-radius: 25; -fx-border-color: black; -fx-border-radius: 25;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ViewProfileController">
+   <children>
+      <Pane layoutX="435.0" prefHeight="618.0" prefWidth="489.0">
+         <children>
+            <ImageView fitHeight="268.0" fitWidth="323.0" layoutX="292.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/4eb7bda23bf456a53fd6ba84c1048ba6.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <!-- ImageView nền đã được chỉnh sửa -->
+      <ImageView pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../src/Image%20For%20Market/d83a6a99caa0cadd0c2cb744c970ebc0.gif" />
+         </image>
+      </ImageView>
+
+      <VBox alignment="TOP_CENTER" layoutX="251.0" layoutY="93.0" prefHeight="419.0" prefWidth="545.0" spacing="20.0" style="-fx-opacity: 1;" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="89.79999999999984" AnchorPane.topAnchor="93.0">
+         <children>
+            <ImageView fitHeight="97.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/61f75ea9a680def2ed1c6929fe75aeee-Photoroom.png" />
+               </image>
+            </ImageView>
+            <Text fill="#240273" text="My Profile">
+               <font>
+                  <Font name="Comic Sans MS" size="28.0" />
+               </font>
+            </Text>
+            <GridPane hgap="10" style="-fx-background-color: #94effa; -fx-opacity: 0.8; -fx-padding: 20; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" vgap="15">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="120.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label style="-fx-opacity: 1;" text="Username:" textFill="#795548">
+                     <font><Font name="Comic Sans MS" size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="usernameLabel" text="[username]" GridPane.columnIndex="1">
+                     <font><Font name="Segoe UI Semibold" size="16.0" /></font>
+                  </Label>
+                  <Label text="Full Name:" textFill="#795548" GridPane.rowIndex="1">
+                     <font><Font name="Comic Sans MS" size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="fullNameLabel" text="[Full Name]" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font><Font name="Segoe UI Semibold" size="16.0" /></font>
+                  </Label>
+                  <Label text="Email:" textFill="#795548" GridPane.rowIndex="2">
+                     <font><Font name="Comic Sans MS" size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="emailLabel" text="[Email]" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font><Font name="Segoe UI Semibold" size="16.0" /></font>
+                  </Label>
+                  <Label text="Role:" textFill="#795548" GridPane.rowIndex="3">
+                     <font><Font name="Comic Sans MS" size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="roleLabel" text="[Role]" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font><Font name="Segoe UI Semibold" size="16.0" /></font>
+                  </Label>
+                  <Label text="Joined Date:" textFill="#795548" GridPane.rowIndex="4">
+                     <font><Font name="Comic Sans MS" size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="createdAtLabel" text="[Created At]" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font><Font name="Segoe UI Semibold" size="16.0" /></font>
+                  </Label>
+                   <Label text="Last Updated:" textFill="#795548" GridPane.rowIndex="5">
+                       <font><Font name="Comic Sans MS" size="16.0" /></font>
+                   </Label>
+                   <Label fx:id="updatedAtLabel" text="[Updated At]" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                       <font><Font name="Segoe UI Semibold" size="16.0" /></font>
+                   </Label>
+               </children>
+            </GridPane>
+            <JFXButton fx:id="changePasswordButton" onAction="#handleChangePasswordButton" style="-fx-background-color: #9a33bf; -fx-text-fill: white;" text="Change Password">
+               <font><Font name="Segoe UI Semibold" size="15.0" /></font>
+               <VBox.margin>
+                  <Insets left="250.0" top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="287.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../src/Image%20For%20Market/42e3d769ccd5f30dc3e5f714e676f3d2.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

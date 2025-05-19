@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefWidth="520.0" 
+            style="-fx-background-color: #FFFDE7; -fx-background-radius: 20;" 
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ui.OrderReviewFormDialogController"> <!-- Controller mới -->
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="15.0" 
+              AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" 
+              AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label fx:id="dialogTitleLabel" text="Review Details" textFill="#8D6E63">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font>
+                </Label>
+
+                <GridPane hgap="10.0" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="110.0" prefWidth="140.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" /> <!-- Review ID -->
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" /> <!-- Order ID -->
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" /> <!-- Review Score -->
+                        <RowConstraints minHeight="70.0" prefHeight="100.0" vgrow="SOMETIMES" /> <!-- Review Comment -->
+                    </rowConstraints>
+                    <children>
+                        <Label text="Review ID*:" textFill="#5D4037" GridPane.rowIndex="0">
+                            <font><Font name="Segoe UI Semibold" size="14.0" /></font>
+                        </Label>
+                        <JFXTextField fx:id="reviewIdField" promptText="Enter Review ID (e.g., REVIEW001)" focusColor="#FFB300" unFocusColor="#FFE082" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Order ID:" textFill="#5D4037" GridPane.rowIndex="1"> <!-- Order ID có thể null -->
+                            <font><Font name="Segoe UI Semibold" size="14.0" /></font>
+                        </Label>
+                        <JFXTextField fx:id="orderIdField" promptText="Enter associated Order ID (optional)" focusColor="#FFB300" unFocusColor="#FFE082" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        
+                        <Label text="Review Score:" textFill="#5D4037" GridPane.rowIndex="2"> <!-- Score có thể null -->
+                            <font><Font name="Segoe UI Semibold" size="14.0" /></font>
+                        </Label>
+                        <JFXComboBox fx:id="reviewScoreComboBox" prefWidth="300.0" promptText="Select Score (1-5, optional)" focusColor="#FFB300" unFocusColor="#FFE082" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        
+                        <Label text="Comment:" textFill="#5D4037" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                            <font><Font name="Segoe UI Semibold" size="14.0" /></font>
+                            <GridPane.margin>
+                                <Insets top="5.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <JFXTextArea fx:id="reviewCommentArea" prefHeight="80.0" promptText="Enter review comment (optional)" wrapText="true" focusColor="#FFB300" unFocusColor="#FFE082" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    </children>
+                </GridPane>
+
+                <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                    <children>
+                        <JFXButton fx:id="saveButton" onAction="#handleSaveReview" text="Save Review" 
+                                   style="-fx-background-color: #FF8F00; -fx-text-fill: white;" 
+                                   defaultButton="true" buttonType="RAISED" ripplerFill="#FFECB3"/>
+                        <JFXButton fx:id="cancelButton" onAction="#handleCancelDialog" text="Cancel" 
+                                   cancelButton="true" buttonType="RAISED" ripplerFill="#FFF9C4" style="-fx-text-fill: #5D4037;"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

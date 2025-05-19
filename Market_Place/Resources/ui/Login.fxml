@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1133.0" style="-fx-background-color: #c73535;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoginController">
+   <children>
+      <Pane layoutX="14.0" layoutY="23.0" prefHeight="569.0" prefWidth="438.0" style="-fx-background-color: #fff2f2; -fx-background-radius: 20;" AnchorPane.bottomAnchor="23.399999999999977" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="23.0">
+         <children>
+            <ImageView cache="true" fitHeight="172.0" fitWidth="136.0" layoutX="7.0" layoutY="-13.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20214812-Photoroom.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="100.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome !!!" wrappingWidth="268.5367431640625">
+               <font>
+                  <Font name="Segoe Print" size="30.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtUsername" layoutX="75.0" layoutY="165.0" prefHeight="25.0" prefWidth="172.0" />
+            <Text layoutX="75.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+               <font>
+                  <Font name="Berlin Sans FB" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="75.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font name="Berlin Sans FB" size="16.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="txtPassword" layoutX="75.0" layoutY="225.0" prefHeight="25.0" prefWidth="172.0" promptText="**********" />
+            <JFXButton fx:id="btnLogin" layoutX="75.0" layoutY="283.0" onAction="#handleLogin" prefHeight="25.0" prefWidth="248.0" ripplerFill="#c73535" style="-fx-background-color: #ff8f8f;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Text fill="#f70d0d" layoutX="237.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget your password?">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text layoutX="102.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont have an account yet?">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+					            
+            <JFXButton fx:id="btnGoToSignUp" layoutX="234.0" layoutY="320.0" onAction="#handleSignUp" prefHeight="25.0" prefWidth="90.0" ripplerFill="#ff6161" style="-fx-background-color: #ff8f8f;" text="Sign in" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="304.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20214833-Photoroom.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="83.0" fitWidth="79.0" layoutX="258.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20215829-Photoroom.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="180.0" fitWidth="261.0" layoutX="31.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/4e26c49b5f91d42e883f4b2cbf34d772.gif" />
+               </image>
+            </ImageView>
+            <Text layoutX="308.0" layoutY="652.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Made by DanielCTK" />
+         </children>
+      </Pane>
+      <Pane layoutX="500.0" layoutY="6.0" prefHeight="732.0" prefWidth="639.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+         <children>
+            <ImageView fitHeight="340.0" fitWidth="350.0" layoutX="175.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20153738-Photoroom.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="481.0" fitWidth="514.0" layoutX="85.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../src/Image%20For%20Market/Screenshot%202025-05-12%20221526-Photoroom.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,218 @@
+/* styles.css */
+
+/* --- Font chữ chung cho toàn bộ ứng dụng (tùy chọn) --- */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif; /* Ưu tiên Segoe UI, nếu không có thì Arial, rồi đến sans-serif mặc định */
+    -fx-base: #ECEFF1; /* Màu nền cơ bản rất nhạt, có thể ảnh hưởng đến một số control */
+}
+
+
+/* --- Style cho các nút chung dựa trên mục đích --- */
+.jfx-button { /* Style chung cho JFXButton nếu bạn muốn đồng nhất hơn */
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 8px 15px;
+    -jfx-button-type: RAISED; /* Mặc định là raised button cho JFoenix */
+}
+
+.primary-button {
+    -fx-background-color: #007BFF; /* Xanh dương chính */
+    -fx-text-fill: white;
+}
+.primary-button:hover {
+    -fx-background-color: #0056b3; /* Đậm hơn khi hover */
+}
+
+.success-button {
+    -fx-background-color: #28a745; /* Xanh lá (thành công) */
+    -fx-text-fill: white;
+}
+.success-button:hover {
+    -fx-background-color: #1e7e34;
+}
+
+.info-button {
+    -fx-background-color: #17a2b8; /* Xanh lam (thông tin) */
+    -fx-text-fill: white;
+}
+.info-button:hover {
+    -fx-background-color: #117a8b;
+}
+
+.warning-button {
+    -fx-background-color: #ffc107; /* Vàng (cảnh báo) */
+    -fx-text-fill: #212529; /* Chữ tối để dễ đọc trên nền vàng */
+}
+.warning-button:hover {
+    -fx-background-color: #d39e00;
+}
+
+.danger-button {
+    -fx-background-color: #dc3545; /* Đỏ (nguy hiểm, xóa) */
+    -fx-text-fill: white;
+}
+.danger-button:hover {
+    -fx-background-color: #bd2130;
+}
+
+.light-button { /* Nút với nền sáng, chữ tối */
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #212529;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1px;
+}
+.light-button:hover {
+    -fx-background-color: #e2e6ea;
+}
+
+
+/* --- Style cho Sidebar Menu (trong Main.fxml) --- */
+.menu-header-box { /* HBox chứa icon và text của menu header */
+    -fx-padding: 8px 10px;
+    /* -fx-border-color: transparent; */ /* Bỏ viền nếu không muốn */
+    /* -fx-border-width: 0 0 1px 0; */ /* Viền dưới nhẹ nhàng */
+}
+.menu-header-box:hover {
+    -fx-background-color: #d14545; /* Màu đỏ nhạt hơn khi hover, điều chỉnh cho phù hợp với sidebar của bạn */
+}
+.menu-header-box .text { /* Text bên trong menu header */
+    -fx-fill: #FFFFFF; /* Màu chữ trắng trên nền sidebar đỏ */
+    -fx-font-size: 15px;
+}
+
+.submenu-button-original { /* Các nút trong submenu */
+    -fx-background-color: transparent; /* Nền trong suốt */
+    -fx-text-fill: #f5f5f5; /* Màu chữ trắng nhạt */
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8px 15px 8px 30px; /* Thụt lề trái cho submenu */
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-pref-width: 200px; /* Đảm bảo nút đủ rộng */
+}
+.submenu-button-original:hover {
+    -fx-background-color: #b82e2e; /* Màu nền khi hover, đậm hơn một chút */
+    -fx-text-fill: white;
+}
+.submenu-button-original:focused {
+     -fx-border-color: #f87a9c; /* Viền khi focus */
+     -fx-border-width: 1px;
+     -fx-border-style: solid;
+     -fx-border-insets: -1;
+}
+
+
+/* --- Style cho TableView/TreeTableView trong các panel con --- */
+.tree-table-view, .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6; /* Viền xám nhạt */
+    -fx-border-radius: 4px;
+    -fx-background-insets: 0;
+    -fx-font-size: 13px;
+}
+
+.tree-table-view .column-header-background,
+.table-view .column-header-background {
+    -fx-background-color: #f1f3f5; /* Nền header rất nhạt */
+}
+
+.tree-table-view .column-header,
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 8px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #343a40; /* Màu chữ header đậm */
+    -fx-alignment: CENTER_LEFT;
+}
+
+.tree-table-view .column-header .label, /* Áp dụng cho text của header */
+.table-view .column-header .label {
+    -fx-text-fill: #343a40;
+}
+
+.tree-table-view .table-cell,
+.table-view .table-cell {
+    -fx-padding: 8px 8px;
+    -fx-border-color: transparent transparent #e9ecef transparent; /* Chỉ viền dưới */
+    -fx-text-fill: #495057; /* Màu chữ cell */
+}
+
+/* Màu khi chọn dòng */
+.tree-table-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:selected,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}
+
+.tree-table-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:selected .table-cell,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected .table-cell {
+     -fx-text-fill: white; /* Đảm bảo text trong cell cũng trắng khi dòng được chọn */
+}
+
+/* Loại bỏ viền ngoài của JFXTreeTableView nếu không muốn */
+.jfx-tree-table-view {
+    /* -fx-border-width: 0; */
+}
+
+
+/* --- Style cho ComboBox và TextField (chung cho các panel) --- */
+.jfx-combo-box {
+    -fx-font-size: 14px;
+    -jfx-focus-color: #007BFF; /* Màu focus của JFoenix (có thể đổi theo theme) */
+    -jfx-unfocus-color: #B0BEC5; /* Màu unfocus của JFoenix */
+    -fx-pref-height: 35px;
+}
+.text-field { /* Áp dụng cho TextField tiêu chuẩn */
+    -fx-font-size: 14px;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 10px;
+    -fx-pref-height: 35px;
+}
+.text-field:focused {
+    -fx-border-color: #80bdff; /* Màu viền khi focus */
+    -fx-effect: dropshadow(gaussian, rgba(0, 123, 255, 0.25), 4, 0, 0, 0);
+}
+
+/* --- Style cho các Label thông tin (ví dụ: pageInfoLabel) --- */
+.info-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6c757d; /* Màu xám cho text phụ */
+}
+
+/* --- Tiêu đề trong các Panel con --- */
+.panel-title-text {
+    -fx-font-size: 22px; 
+    -fx-fill: #333333; 
+    -fx-font-weight: BOLD;
+    /* -fx-font-family: "Segoe UI Semibold", "Roboto Medium", sans-serif; */
+}
+
+/* --- Nền chung cho các panel nội dung --- */
+.content-panel-background {
+     -fx-background-color: #FFFFFF; /* Nền trắng cho các panel con */
+     -fx-padding: 20px; /* Padding chung */
+     -fx-border-color: #E0E0E0; /* Viền nhẹ nếu muốn */
+     -fx-border-width: 0 0 0 1px; /* Ví dụ, chỉ viền trái */
+}
+
+/* --- Style cho TitledPane (nếu bạn dùng) --- */
+.titled-pane > .title {
+    -fx-background-color: #e9ecef; /* Nền cho title bar của TitledPane */
+    -fx-padding: 8px 12px;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+.titled-pane > .title > .arrow-button .arrow {
+    -fx-background-color: #343a40; /* Màu mũi tên trong TitledPane */
+}
+.titled-pane > .content {
+    -fx-background-color: white;
+    -fx-padding: 10px;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px 0 0 0; /* Chỉ viền trên cho content */
+}
