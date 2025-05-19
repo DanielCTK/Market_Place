@@ -1,167 +1,170 @@
 # Market Place Application
 
-## 1. Giới thiệu
+## 1. Introduction
 
-**Market_Place** là một ứng dụng desktop được xây dựng bằng JavaFX, mô phỏng một môi trường chợ/sàn giao dịch. Nó cho phép người dùng với các vai trò khác nhau (Khách hàng, Người bán, Quản trị viên) tương tác với sản phẩm, đơn hàng, đánh giá và quản lý tài khoản của họ. Ứng dụng có hệ thống phân quyền dựa trên vai trò, các bảng điều khiển quản lý khác nhau và chức năng báo cáo.
+**Market_Place** is a desktop application built with JavaFX, simulating a transactional marketplace environment. It allows users with different roles (Customers, Sellers, Administrators) to interact with products, orders, reviews, and manage their accounts. The application features a role-based access system, various management panels, and reporting functionalities.
 
-## 2. Tính năng chính
+## 2. Key Features
 
-Ứng dụng bao gồm các module chính sau:
+The application comprises the following main modules:
 
-*   **Xác thực & Quản lý tài khoản người dùng:**
-    *   Đăng nhập (`Login.fxml`)
-    *   Đăng ký (`Registration.fxml`)
-    *   Xem thông tin cá nhân (`ViewProfilePanel.fxml`)
-    *   Thay đổi mật khẩu (`ChangePasswordDialog.fxml`)
-*   **Bảng điều khiển quản lý (dành cho Admin):**
-    *   Quản lý người dùng (`UserManagementPanel.fxml`, `UserFormDialog.fxml`)
-    *   Quản lý sản phẩm (`ProductManagementPanel.fxml`, `ProductFormDialog.fxml`)
-    *   Quản lý người bán (`SellerManagementPanel.fxml`, `SellerFormDialog.fxml`)
-    *   Quản lý đơn hàng (xem tất cả đơn hàng) (`OrderManagementPanel.fxml`, `OrderNewFormDialog.fxml`, `OrderItemFormDialog.fxml`)
-    *   Quản lý đánh giá (`ReviewManagementPanel.fxml`, `OrderReviewFormDialog.fxml`)
-*   **Báo cáo (Admin/Người bán):**
-    *   Báo cáo doanh thu mới (`NewSalesReportPanel.fxml`)
-    *   Báo cáo hoạt động người dùng (`UserActivityReportPanel.fxml`)
-*   **"Cửa hàng của tôi" (dành cho Người bán - dựa trên menu trong `Main.fxml`):**
-    *   Quản lý "Sản phẩm của tôi"
-    *   Quản lý "Đơn hàng của tôi"
-*   **Giao diện chung:**
-    *   Cửa sổ ứng dụng chính (`Main.fxml`) với menu điều hướng động.
-    *   Tùy chỉnh giao diện qua CSS (`styles.css`, `styles2.css`).
+*   **User Authentication & Account Management:**
+    *   Login (`Login.fxml`)
+    *   Registration (`Registration.fxml`)
+    *   View Profile (`ViewProfilePanel.fxml`)
+    *   Change Password (`ChangePasswordDialog.fxml`)
+*   **Admin-Specific Management Panels:**
+    *   User Management (`UserManagementPanel.fxml`, `UserFormDialog.fxml`)
+    *   Product Management (`ProductManagementPanel.fxml`, `ProductFormDialog.fxml`)
+    *   Seller Management (`SellerManagementPanel.fxml`, `SellerFormDialog.fxml`)
+    *   Order Management (view all orders) (`OrderManagementPanel.fxml`, `OrderNewFormDialog.fxml`, `OrderItemFormDialog.fxml`)
+    *   Review Management (`ReviewManagementPanel.fxml`, `OrderReviewFormDialog.fxml`)
+*   **Reporting (Admin/Seller):**
+    *   New Sales Report (`NewSalesReportPanel.fxml`)
+    *   User Activity Report (`UserActivityReportPanel.fxml`)
+*   **"My Store" (for Sellers - based on menu items in `Main.fxml`):**
+    *   Manage "My Products"
+    *   Manage "My Orders"
+*   **General UI:**
+    *   Main application window (`Main.fxml`) with a dynamic navigation menu.
+    *   Interface customization via CSS (`styles.css`, `styles2.css`).
 
-## 3. Công nghệ sử dụng
+## 3. Technologies Used
 
-*   **Ngôn ngữ:** Java (khả năng cao là JDK 17+ để tương thích với JavaFX 21)
+*   **Language:** Java (most likely JDK 17+ for JavaFX 21 compatibility)
 *   **UI Framework:** JavaFX
-*   **Thư viện UI Components:** JFoenix (cho các control JavaFX nâng cao)
-*   **Cơ sở dữ liệu:** MySQL (dựa trên `DBConnection.java` và `DatabaseManager.java`)
-*   **Băm mật khẩu:** jBCrypt (từ `PasswordHasher.java`)
-*   **IDE (Giả định):** Eclipse hoặc IntelliJ IDEA
+*   **UI Components Library:** JFoenix (for enhanced JavaFX controls)
+*   **Database:** MySQL (based on `DBConnection.java` and `DatabaseManager.java`)
+*   **Password Hashing:** jBCrypt (from `PasswordHasher.java`)
+*   **IDE (Assumed):** Eclipse or IntelliJ IDEA
 
-## 4. Yêu cầu môi trường
+## 4. Prerequisites
 
-*   **JDK (Java Development Kit):** Khuyến nghị phiên bản 17 trở lên. Đảm bảo `JAVA_HOME` đã được thiết lập.
-*   **JavaFX SDK:** Phiên bản 17 trở lên. Tải về từ [GluonHQ](https://gluonhq.com/products/javafx/).
-*   **MySQL Server:** Một instance MySQL đang chạy.
-*   **MySQL Connector/J:** JDBC driver cho MySQL. Tải về từ [MySQL Website](https://dev.mysql.com/downloads/connector/j/).
-*   **JFoenix JAR:** Tải file JAR JFoenix (ví dụ: `jfoenix-9.0.10.jar` hoặc tương tự).
-*   **jBCrypt JAR:** `jbcrypt-0.4.jar` (hoặc mới nhất). Có thể tìm thấy trên Maven Central.
-*   **IDE:** Eclipse, IntelliJ IDEA, hoặc NetBeans có hỗ trợ JavaFX.
+*   **JDK (Java Development Kit):** Version 17 or newer recommended. Ensure `JAVA_HOME` is set.
+*   **JavaFX SDK:** Version 17 or newer. Download from [GluonHQ](https://gluonhq.com/products/javafx/).
+*   **MySQL Server:** A running MySQL instance.
+*   **MySQL Connector/J:** JDBC driver for MySQL. Download from [MySQL Website](https://dev.mysql.com/downloads/connector/j/).
+*   **JFoenix JAR:** Download the JFoenix JAR file (e.g., `jfoenix-9.0.10.jar` or similar).
+*   **jBCrypt JAR:** `jbcrypt-0.4.jar` (or latest). Can be found on Maven Central.
+*   **IDE:** Eclipse, IntelliJ IDEA, or NetBeans with JavaFX support.
 
-## 5. Cài đặt và Khởi chạy
+## 5. Setup and Launch
 
-### 5.1. Cài đặt Cơ sở dữ liệu
+### 5.1. Database Setup
 
-1.  **Tạo Cơ sở dữ liệu:**
-    *   Đảm bảo MySQL server của bạn đang chạy.
-    *   Tạo một database tên là `marketplace` (như trong `DatabaseManager.java`). Bạn có thể dùng công cụ như MySQL Workbench hoặc dòng lệnh:
+1.  **Create Database:**
+    *   Ensure your MySQL server is running.
+    *   Create a database named `marketplace` (as in `DatabaseManager.java`). You can use a tool like MySQL Workbench or the command line:
         ```sql
         CREATE DATABASE marketplace;
         USE marketplace;
         ```
-2.  **Tạo Bảng:**
-    Dựa trên các file DAO và Model, bạn cần tạo các bảng sau:
-    *   **`users`**: `id` (PK, INT, AI), `username` (VARCHAR, UNIQUE), `password` (VARCHAR, HASHED), `full_name` (VARCHAR), `email` (VARCHAR, UNIQUE), `role` (VARCHAR - vd: 'ADMIN', 'SELLER', 'CUSTOMER'), `created_at` (TIMESTAMP), `updated_at` (TIMESTAMP).
+2.  **Create Tables:**
+    Based on the DAO and Model files, you need to create the following tables:
+    *   **`users`**: `id` (PK, INT, AI), `username` (VARCHAR, UNIQUE), `password` (VARCHAR, HASHED), `full_name` (VARCHAR), `email` (VARCHAR, UNIQUE), `role` (VARCHAR - e.g., 'ADMIN', 'SELLER', 'CUSTOMER'), `created_at` (TIMESTAMP), `updated_at` (TIMESTAMP).
     *   **`products`**: `product_id` (PK, VARCHAR), `product_category_name` (VARCHAR), `product_weight_g` (DOUBLE, NULLABLE).
     *   **`sellers`**: `seller_id` (PK, VARCHAR), `seller_state` (VARCHAR, NULLABLE).
-    *   **`orders`**: `order_id` (PK, VARCHAR), `timestamp` (TIMESTAMP), `customer_contact` (VARCHAR - user_id của khách hàng).
-    *   **`order_items`**: `order_items_pk` (PK, INT, AI), `order_id` (FK tới orders), `product_id` (FK tới products), `seller_id` (FK tới sellers), `price` (FLOAT).
-    *   **`order_reviews`**: `review_id` (PK, VARCHAR), `order_id` (FK tới orders, NULLABLE), `review_score` (INT, NULLABLE), `review_comment_message` (TEXT, NULLABLE).
-3.  **Tạo User & Phân quyền:**
-    Tạo một user MySQL (ví dụ: `appuser` với mật khẩu `app_pass123`) và cấp quyền cần thiết cho database `marketplace`.
+    *   **`orders`**: `order_id` (PK, VARCHAR), `timestamp` (TIMESTAMP), `customer_contact` (VARCHAR - customer's user_id).
+    *   **`order_items`**: `order_items_pk` (PK, INT, AI), `order_id` (FK to orders), `product_id` (FK to products), `seller_id` (FK to sellers), `price` (FLOAT).
+    *   **`order_reviews`**: `review_id` (PK, VARCHAR), `order_id` (FK to orders, NULLABLE), `review_score` (INT, NULLABLE), `review_comment_message` (TEXT, NULLABLE).
+3.  **Create User & Grant Privileges:**
+    Create a MySQL user (e.g., `appuser` with password `app_pass123`) and grant necessary privileges for the `marketplace` database.
     ```sql
     CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'app_pass123';
     GRANT ALL PRIVILEGES ON marketplace.* TO 'appuser'@'localhost';
     FLUSH PRIVILEGES;
     ```
-4.  **Cập nhật thông tin kết nối CSDL (nếu cần):**
-    Mở file `src/Services/DatabaseManager.java` và đảm bảo các hằng số `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS` khớp với cài đặt MySQL của bạn.
+4.  **Update Database Connection Info (if necessary):**
+    Open `src/Services/DatabaseManager.java` and ensure the `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS` constants match your MySQL setup.
 
-### 5.2. Cài đặt trên IDE (Ví dụ: Eclipse/IntelliJ)
+### 5.2. IDE Setup (Example: Eclipse/IntelliJ)
 
-1.  **Clone/Tải Project:** Lấy mã nguồn dự án về máy của bạn.
-2.  **Tạo Java Project:**
-    *   Trong IDE, tạo một Java Project mới (hoặc JavaFX project nếu IDE có template).
-    *   Import các file mã nguồn vào cấu trúc thư mục `src` tương ứng.
-3.  **Thêm Thư viện/JARs:**
+1.  **Clone/Download Project:** Get the project source code onto your machine.
+2.  **Create Java Project:**
+    *   In your IDE, create a new Java Project (or JavaFX project if your IDE has a template).
+    *   Import the source files into the appropriate `src` directory structure.
+3.  **Add Libraries/JARs:**
     *   **JavaFX SDK:**
-        *   Thêm các thư viện của JavaFX SDK vào build path/module path của project.
-        *   (Đối với project không dùng module) Bạn có thể cần thêm VM arguments khi chạy:
-            `--module-path /path/to/javafx-sdk-XX/lib --add-modules javafx.controls,javafx.fxml,com.jfoenix` (Thay thế `XX` và đường dẫn).
-            Lưu ý: `module-info.java` của bạn đã có `requires com.jfoenix;`, `requires javafx.controls;`, `requires javafx.fxml;` v.v.
-    *   **MySQL Connector/J JAR:** Thêm file `mysql-connector-java-X.X.XX.jar` vào build path.
-    *   **JFoenix JAR:** Thêm file `jfoenix-X.X.X.jar` vào build path.
-    *   **jBCrypt JAR:** Thêm file `jbcrypt-X.X.jar` vào build path.
-4.  **Cấu hình Thư mục Mã nguồn:**
-    *   Đảm bảo `src` được đánh dấu là source folder.
-    *   Thư mục `Resources` (chứa `ui/` và `Image For Market/`) nên được đặt trong một source folder (ví dụ `src/main/resources`) và được thêm vào classpath.
-    *   Thư mục `bin` là thư mục output của IDE, không cần cấu hình làm source folder.
+        *   Add the JavaFX SDK libraries to your project's build path/module path.
+        *   (For non-modular projects) You might need to add VM arguments when running:
+            `--module-path /path/to/javafx-sdk-XX/lib --add-modules javafx.controls,javafx.fxml,com.jfoenix` (Replace `XX` and the path).
+            Note: Your `module-info.java` already includes `requires com.jfoenix;`, `requires javafx.controls;`, `requires javafx.fxml;`, etc.
+    *   **MySQL Connector/J JAR:** Add the `mysql-connector-java-X.X.XX.jar` file to the build path.
+    *   **JFoenix JAR:** Add the `jfoenix-X.X.X.jar` file to the build path.
+    *   **jBCrypt JAR:** Add the `jbcrypt-X.X.jar` file to the build path.
+4.  **Configure Source Folders:**
+    *   Ensure `src` is marked as a source folder.
+    *   The `Resources` folder (containing `ui/` and `Image For Market/`) should be placed in a source folder (e.g., `src/main/resources`) and added to the classpath.
+    *   The `bin` folder is the IDE's output directory and does not need to be configured as a source folder.
 
-### 5.3. Dữ liệu ban đầu (Tùy chọn)
+### 5.3. Initial Data (Optional)
 
-*   Bạn có thể cần tạo sẵn một tài khoản admin trong bảng `users`.
-*   Sử dụng `src/utils/GenerateHashes.java` để tạo mật khẩu đã băm nếu cần, sau đó chèn thủ công vào CSDL.
+*   You may need to create an admin account in the `users` table.
+*   Use `src/utils/GenerateHashes.java` to create hashed passwords if needed, then manually insert them into the database.
 
-## 6. Chạy Ứng dụng
+## 6. Running the Application
 
-1.  Đảm bảo MySQL server đang chạy và CSDL đã được cài đặt.
-2.  File khởi chạy chính của ứng dụng là `src/ui/Launcher.java`.
-3.  Chạy `Launcher.java` như một Java Application từ IDE của bạn.
-4.  Màn hình Đăng nhập (`Login.fxml`) sẽ xuất hiện.
-    *   Sử dụng thông tin đăng nhập của user bạn đã thêm vào CSDL.
-    *   Bạn cũng có thể đăng ký người dùng mới.
+1.  Ensure the MySQL server is running and the database is set up.
+2.  The main entry point for the application is `src/ui/Launcher.java`.
+3.  Run `Launcher.java` as a Java Application from your IDE.
+4.  The Login screen (`Login.fxml`) will appear.
+    *   Use the login credentials of users you've added to the database.
+    *   You can also register new users.
 
-## 7. Cấu trúc Project
-
+## 7. Project Structure
+```
 Market_Place/
-├── bin/ # Thư mục output của IDE (chứa file .class, FXML, CSS đã copy)
+├── bin/ # IDE output directory (contains .class files, copied FXML, CSS)
 │ └── ui/
 │ ├── *.fxml
 │ └── *.css
-├── Resources/ # Chứa FXML nguồn, hình ảnh
+├── Resources/ # Contains source FXML, images
 │ ├── ui/
 │ │ └── *.fxml
-│ └── Image For Market/ # Hình ảnh của ứng dụng
+│ └── Image For Market/ # Application images
 │ └── *.png, *.gif
 ├── src/
 │ ├── Config/
-│ ├── dao/ # Interfaces cho Data Access Objects
-│ ├── impl/ # Implementations của DAOs
-│ ├── model/ # Các lớp Data Model (POJOs)
-│ ├── Services/ # Logic nghiệp vụ và các services
-│ ├── test/ # Các lớp Test (ví dụ ProductTest.java)
-│ ├── ui/ # Controllers JavaFX và Launcher
-│ └── utils/ # Các lớp tiện ích
-├── module-info.java # File mô tả module Java
-└── README.md # File này
+│ ├── dao/ # Data Access Object Interfaces
+│ ├── impl/ # DAO Implementations
+│ ├── model/ # Data Model classes (POJOs)
+│ ├── Services/ # Business logic and services
+│ ├── test/ # Test classes (e.g., ProductTest.java)
+│ ├── ui/ # JavaFX Controllers and Launcher
+│ └── utils/ # Utility classes
+├── module-info.java # Java module descriptor file
+└── README.md # This file
+```
 
+**Note on FXML and Image File Locations:**
+*   `Resources/ui/` contains the original FXML files you edit.
+*   `Resources/Image For Market/` contains the image files.
+*   When the application is built, these files are typically copied to the output directory (usually `bin` or `target/classes`).
+*   Image paths in FXML files (e.g., `url="@../../src/Image%20For%20Market/..."`) assume that at runtime, the FXML file is in a subdirectory (like `ui`) of the output directory, and the `src` directory (or a similar structure containing `Image For Market`) is also copied to the output directory at the same level as the FXML file's directory. **The best practice is to place the `Image For Market` directory inside `Resources` and reference images directly from the classpath, e.g., `/Image For Market/image.png`.** Alternatively, ensure your `bin` directory structure correctly reflects this relative path.
 
-**Lưu ý về vị trí file FXML và hình ảnh:**
-*   `Resources/ui/` chứa các file FXML gốc bạn chỉnh sửa.
-*   `Resources/Image For Market/` chứa các file hình ảnh.
-*   Khi ứng dụng được build, các file này thường được copy vào thư mục output (thường là `bin` hoặc `target/classes`).
-*   Các đường dẫn đến hình ảnh trong file FXML (ví dụ `url="@../../src/Image%20For%20Market/..."`) giả định rằng tại thời điểm chạy, file FXML nằm trong một thư mục con (như `ui`) của thư mục output, và thư mục `src` (hoặc cấu trúc tương tự chứa `Image For Market`) cũng được copy vào thư mục output ở cùng cấp với thư mục chứa file FXML. **Cách tốt nhất là đặt thư mục `Image For Market` bên trong `Resources` và tham chiếu trực tiếp từ classpath, ví dụ `/Image For Market/image.png`.** Hoặc đảm bảo cấu trúc thư mục `bin` của bạn phản ánh đúng đường dẫn tương đối này.
+## 8. Main Workflow (Overview)
 
-## 8. Luồng hoạt động chính (Tổng quan)
+1.  **Launch:** `ui.Launcher` starts the application, displaying `Login.fxml`.
+2.  **Authentication:** `LoginController` uses `AuthService` to verify login credentials against the database (passwords are checked via `PasswordHasher`). `SessionManager` stores the logged-in user's information.
+3.  **Registration:** `RegistrationController` uses `AuthService` to create new users.
+4.  **Main Window:** `MainController` is loaded after a successful login. It manages the main layout, navigation menu, and dynamically loads content into `mainContentPane`.
+5.  **Access Control:** Based on the user's role (from `SessionManager`), `MainController` enables/disables menu items.
+6.  **Data Operations:** Each panel's controller (e.g., `UserManagementController`) interacts with the corresponding DAO (e.g., `UserDAO`) to perform CRUD operations. DAOs use `DBConnection` (via `DatabaseManager`) to connect to the MySQL database.
+7.  **Dialogs:** Add/edit forms (e.g., `UserFormDialog.fxml`) are typically displayed as modal dialogs.
 
-1.  **Khởi chạy:** `ui.Launcher` bắt đầu ứng dụng, hiển thị `Login.fxml`.
-2.  **Xác thực:** `LoginController` sử dụng `AuthService` để kiểm tra thông tin đăng nhập với CSDL (mật khẩu được kiểm tra qua `PasswordHasher`). `SessionManager` lưu trữ thông tin người dùng đã đăng nhập.
-3.  **Đăng ký:** `RegistrationController` sử dụng `AuthService` để tạo người dùng mới.
-4.  **Cửa sổ chính:** `MainController` được tải sau khi đăng nhập thành công. Nó quản lý layout chính, menu điều hướng và tải nội dung động vào `mainContentPane`.
-5.  **Phân quyền:** Dựa trên vai trò của người dùng (từ `SessionManager`), `MainController` kích hoạt/vô hiệu hóa các mục menu.
-6.  **Thao tác dữ liệu:** Controller của mỗi panel (ví dụ: `UserManagementController`) tương tác với DAO tương ứng (ví dụ: `UserDAO`) để thực hiện các thao tác CRUD. DAOs sử dụng `DBConnection` (thông qua `DatabaseManager`) để kết nối CSDL MySQL.
-7.  **Dialogs:** Các form thêm/sửa (ví dụ: `UserFormDialog.fxml`) thường được hiển thị dưới dạng dialog modal.
+## 9. Potential Enhancements
 
-## 9. Những cải tiến tiềm năng
+*   Use a build system (Maven or Gradle) to manage libraries and build the project.
+*   Provide an SQL script to automatically create the database schema.
+*   Improve error handling and user feedback.
+*   Complete the "My Store" functionality for Sellers.
+*   Add more detailed reports and analytics.
+*   Write Unit and Integration tests.
 
-*   Sử dụng hệ thống build (Maven hoặc Gradle) để quản lý thư viện và build project.
-*   Cung cấp script SQL để tự động tạo schema CSDL.
-*   Xử lý lỗi và phản hồi người dùng tốt hơn.
-*   Hoàn thiện chức năng "Cửa hàng của tôi" cho Người bán.
-*   Thêm các báo cáo và phân tích chi tiết hơn.
-*   Viết Unit test và Integration test.
+## 10. Important Notes
 
-## 10. Lưu ý quan trọng
+*   Ensure that paths to FXML files in `FXMLLoader.load()` calls are correct relative to the classpath (usually starting with `/` for absolute paths from the root of resources/class files).
+*   The application uses JFoenix; ensure the JFoenix JAR file is correctly configured in your project's module path or classpath. The `module-info.java` file should include `requires com.jfoenix;`.
 
-*   Đảm bảo đường dẫn đến các file FXML trong các lời gọi `FXMLLoader.load()` là chính xác so với classpath (thường bắt đầu bằng `/` cho đường dẫn tuyệt đối từ gốc resources/class files).
-*   Ứng dụng sử dụng JFoenix, đảm bảo file JAR JFoenix đã được cấu hình đúng trong module path hoặc classpath của project. File `module-info.java` cần có `requires com.jfoenix;`.
+## 11. Team & Members
+* **Nguyen Thanh Danh - 97482403175**: FullStack
